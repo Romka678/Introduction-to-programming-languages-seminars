@@ -24,13 +24,13 @@ static void Main(String[] args)
             Console.Write(" " + a[i]);
             i+=1;
         }
-        int [] b = Swap_Arr(a);
+        Swap_Arr(a);
         i=0;
         Console.WriteLine("\n");
         Console.WriteLine("Развернутый массив : ");
         while(i < a.Length)
         {
-            Console.Write(" " + b[i]);
+            Console.Write(" " + a[i]);
             i+=1;
         }
     }
