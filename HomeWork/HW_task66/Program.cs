@@ -6,23 +6,14 @@ int Read_number(string a)
     return Convert.ToInt32(Console.ReadLine());
 }
 
-void PrintSumOfNumber(int n, int m)
+int SumOfNumber(int n,int m, int sum)
 {
-    int N = n;
-    int M = m;
-    int sum = 0;
-    if(n < m)
+    if(n>=m)
     {
-        int tmp = n;
-        n = m;
-        m = tmp;
+        sum+=n;
+        return SumOfNumber(n-1,m,sum);
     }
-    while(n >= m)
-    {
-        sum += n;
-        n--;
-    }
-    Console.WriteLine($"Сумма натуральных элементов в промежутке от {N} до {M} = " + sum);
+    return sum;
 }
 int n = Read_number("Введите первое число.");
 int m = Read_number("Введите второе число.");
@@ -32,4 +23,13 @@ while(n <= 0 || m <= 0)
     n = Read_number("Введите первое число.");
     m = Read_number("Введите второе число.");
 }
-PrintSumOfNumber(n, m);
+int sum = 0;
+if(n < m)
+{
+  sum =  SumOfNumber(m,n, sum);
+}
+else
+{
+   sum = SumOfNumber(n,m, sum);
+}
+Console.WriteLine($"Сумма натуральных элементов в промежутке от {n} до {m} = " + sum);
