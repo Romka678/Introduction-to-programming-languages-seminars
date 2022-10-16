@@ -8,6 +8,7 @@
             arr[j] = str[i];
             j++;
         }
+        if(j > arr.Length) break;
     }
     ShowArray(arr);
 }
